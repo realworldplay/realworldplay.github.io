@@ -10,7 +10,7 @@
 ############################
 
 # Name of website
-title: 인지니어스비전실Log Ingenious Vision TechLog
+title: 인지니어스비전실TechLog
 
 # Your name to show in the footer
 author: 도론 DoRhone
@@ -37,7 +37,7 @@ navbar-links:
 avatar: "/assets/img/avatar-icon.png"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
+round-avatar: false
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
