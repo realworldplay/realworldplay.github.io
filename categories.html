@@ -1,0 +1,17 @@
+---
+layout: page
+title: Categories
+permalink: /categories/
+---
+
+<h1>인물별 감정선 보기</h1>
+
+<ul>
+  {% for category in site.categories %}
+    <li>
+      <a href="{{ site.baseurl }}/category/{{ category[0] | slugify }}/">
+        {{ category[0] }} ({{ category[1].size }})
+      </a>
+    </li>
+  {% endfor %}
+</ul>
