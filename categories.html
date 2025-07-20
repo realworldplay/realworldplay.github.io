@@ -8,8 +8,9 @@ permalink: /categories/
 
 <ul>
   {% for category in site.categories %}
+    {% assign slug = category[0] | slugify %}
     <li>
-      <a href="{{ site.baseurl }}/category/{{ category[0] | slugify }}/">
+      <a href="{{ site.baseurl }}/category/{{ slug }}/">
         {{ category[0] }} ({{ category[1].size }})
       </a>
     </li>
