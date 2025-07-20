@@ -10,10 +10,10 @@
 ############################
 
 # Name of website
-title: 인지니어스비전실TechLog
+title: 말해지지 않은 것들
 
 # Your name to show in the footer
-author: Ingenious Vision
+author: 초부
 
 ###############################################
 # --- List of links in the navigation bar --- #
@@ -22,10 +22,8 @@ author: Ingenious Vision
 navbar-links:
   About Me: "aboutme"
   Projects:
-    - Worldplay: "https://jasper-lillipilli-5ae.notion.site/ffa7a5b82c4d4245a63da008ce866cea"
+    - Worldplay: "https://www.worldplay.kr"
     - WorldplayHangzhou: "https://jasper-lillipilli-5ae.notion.site/Play-Hangzhou-f38bb9c97d9c4dff8a47b16aae6c6032"
-    - Thought Collective: ""
-    - StoryNplay: ""
   Author's home: ""
 
 ################
