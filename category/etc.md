@@ -8,7 +8,7 @@ permalink: /category/etc/
 <h1>📜 감정선: 기타 인물들</h1>
 
 <ul>
-  {% for post in site.category.기타 %}
+  {% for post in site.categories.기타 %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y.%m.%d" }})
     </li>
