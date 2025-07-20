@@ -2,7 +2,7 @@
 layout: page
 title: 기타 인물들
 category: 기타
-permalink: /category/etc/
+permalink: /category/gita/
 ---
 
 <h1>📜 감정선: 기타 인물들</h1>
