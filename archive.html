@@ -1,0 +1,46 @@
+---
+layout: page
+title: 연성기록실
+permalink: /archive/
+---
+
+<h1>연성기록실</h1>
+<p>여기는 초부가 복원한 감정선의 기록을 모은 곳입니다.</p>
+<p>말해지지 않은 감정들, 이름을 얻지 못했던 관계들을 여기에 보관합니다.</p>
+
+<hr>
+
+<h2>인물별 보기</h2>
+<ul>
+  <li><a href="/category/한명회">한명회</a></li>
+  <li><a href="/category/성삼문">성삼문</a></li>
+  <li><a href="/category/김시습">김시습</a></li>
+  <li><a href="/category/세조">세조</a></li>
+  <li><a href="/category/기타">기타 인물들</a></li>
+</ul>
+
+<hr>
+
+<h2>감정 키워드별 보기</h2>
+<ul>
+  <li><a href="/tag/침묵">#침묵</a></li>
+  <li><a href="/tag/집착">#집착</a></li>
+  <li><a href="/tag/애증">#애증</a></li>
+  <li><a href="/tag/동경">#동경</a></li>
+  <li><a href="/tag/비애">#비애</a></li>
+</ul>
+
+<hr>
+
+<h2>최근 감정 복원</h2>
+<ul>
+  {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>  
+      — <em>{{ post.date | date: "%Y.%m.%d" }}</em>  
+      <br>
+      <small>{{ post.excerpt | strip_html | truncate: 120 }}</small>
+    </li>
+  {% endfor %}
+</ul>
+
