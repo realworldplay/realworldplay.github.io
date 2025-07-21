@@ -7,7 +7,7 @@ permalink: /category/gita/
 
 <h1>📜 감정선: 기타 인물들</h1>
 
-{% assign cat = site.categories.gita %}
+{% assign cat = site.categories.기타 %}
 {% if cat %}
   <ul>
     {% for post in cat %}
