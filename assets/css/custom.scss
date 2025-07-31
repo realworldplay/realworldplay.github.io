@@ -2,53 +2,51 @@
    1. 본문 스타일
 =========================== */
 body {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #333;
+  font-family: 'Noto Serif KR', serif !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: #333 !important;
 }
 
 /* ===========================
    2. 제목 스타일
 =========================== */
-/* 포스트 제목 */
 .page-header h1.title,
 .post-header h1.title {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 700;
-  border-bottom: none !important; /* 밑줄 제거 */
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+  font-family: 'Noto Sans KR', sans-serif !important;
+  font-weight: 700 !important;
+  border-bottom: none !important;
+  font-size: 2rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
-/* 포스트 내부 제목 */
 .post-content h1,
 .post-content h2,
 .post-content h3 {
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 700;
+  font-family: 'Noto Sans KR', sans-serif !important;
+  font-weight: 700 !important;
   border-bottom: none !important;
 }
 
-.post-content h1 { font-size: 1.8rem; }
-.post-content h2 { font-size: 1.6rem; }
-.post-content h3 { font-size: 1.4rem; }
+.post-content h1 { font-size: 1.8rem !important; }
+.post-content h2 { font-size: 1.6rem !important; }
+.post-content h3 { font-size: 1.4rem !important; }
 
 /* ===========================
-   3. 모바일 반응형
+   3. 모바일 강제 적용
 =========================== */
 @media (max-width: 768px) {
   body {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
   }
 
   .page-header h1.title,
   .post-header h1.title {
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
   }
 
-  .post-content h1 { font-size: 1.5rem; }
-  .post-content h2 { font-size: 1.3rem; }
-  .post-content h3 { font-size: 1.2rem; }
+  .post-content h1 { font-size: 1.5rem !important; }
+  .post-content h2 { font-size: 1.3rem !important; }
+  .post-content h3 { font-size: 1.2rem !important; }
 }
