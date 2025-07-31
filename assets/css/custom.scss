@@ -1,0 +1,54 @@
+/* ===========================
+   1. 본문 스타일
+=========================== */
+body {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ===========================
+   2. 제목 스타일
+=========================== */
+/* 포스트 제목 */
+.page-header h1.title,
+.post-header h1.title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  border-bottom: none !important; /* 밑줄 제거 */
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* 포스트 내부 제목 */
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  border-bottom: none !important;
+}
+
+.post-content h1 { font-size: 1.8rem; }
+.post-content h2 { font-size: 1.6rem; }
+.post-content h3 { font-size: 1.4rem; }
+
+/* ===========================
+   3. 모바일 반응형
+=========================== */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page-header h1.title,
+  .post-header h1.title {
+    font-size: 1.6rem;
+  }
+
+  .post-content h1 { font-size: 1.5rem; }
+  .post-content h2 { font-size: 1.3rem; }
+  .post-content h3 { font-size: 1.2rem; }
+}
