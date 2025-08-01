@@ -50,3 +50,13 @@ body {
   .post-content h2 { font-size: 1.3rem !important; }
   .post-content h3 { font-size: 1.2rem !important; }
 }
+
+/* 홈 화면 전용 스타일 (layout: home 기반으로 구분) */
+.layout--home .post-title {
+  font-size: 1.2rem !important; /* 포스트 제목 */
+}
+
+.layout--home .post-excerpt {
+  font-size: 0.95rem !important; /* 포스트 요약글 */
+  line-height: 1.4;
+}
