@@ -68,3 +68,25 @@ body.home .post-excerpt {
   font-size: 0.95rem !important; /* 포스트 요약글 */
   line-height: 1.4;
 }
+
+/* 홈 화면 전용 스타일 (layout: home 기반으로 구분) */
+.layout--home .page-header h1.title {
+  font-size: 1.8rem !important; /* 메인 타이틀 크기 */
+}
+
+.layout--home .page-header .subtitle {
+  font-size: 1rem !important; /* 서브타이틀 크기 */
+  font-weight: 400 !important;
+  color: #666 !important; /* 조금 더 연한 색상 */
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .layout--home .page-header h1.title {
+    font-size: 1.4rem !important; /* 모바일에서 타이틀 축소 */
+  }
+
+  .layout--home .page-header .subtitle {
+    font-size: 0.9rem !important; /* 모바일에서 서브타이틀 축소 */
+  }
+}
