@@ -1,0 +1,37 @@
+---
+layout: page
+title: 인터랙티브 회지
+permalink: /interactive/
+---
+
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/if.css">
+
+<div id="if-app">
+  <header>
+    <h1>한명회×성삼문 회지 – 인터랙티브</h1>
+    <div class="toolbar">
+      <select id="workSelect">
+        <option value="han-seong.json">회지: 강가의 편지</option>
+        <!-- 다른 작품 추가 가능 -->
+      </select>
+      <button id="btnRestart">처음부터</button>
+      <button id="btnBack">되돌리기</button>
+      <button id="btnSave">저장</button>
+      <button id="btnLoad">불러오기</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="scene-media"></div>
+    <div id="scene-text"></div>
+    <div id="choices"></div>
+  </main>
+</div>
+
+<script src="{{ site.baseurl }}/assets/js/if-engine.js"></script>
+<script>
+  IF.init({
+    baseUrl: "{{ site.baseurl }}/interactive/",
+    storageKey: "if-hanseong-v1"
+  });
+</script>
