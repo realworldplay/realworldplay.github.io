@@ -1,0 +1,44 @@
+{
+  "id": "han-seong-ep01.json",
+  "start": "intro",
+  "scenes": {
+    "intro": {
+      "text": "시문회가 끝나갈 무렵, 종이 위 먹빛이 아직 반짝인다. 그는 이름을 쓰지 않는다. 너는 그를 본다.",
+      "choices": [
+        { "label": "다정히 말을 건다", "goto": "speak", "effects": [{"setFlag": "silence"}] },
+        { "label": "멀리서 지켜본다", "goto": "watch", "effects": [{"setFlag": "obsession"}] }
+      ]
+    },
+    "speak": {
+      "text": "예의 바른 시선, 짧은 대답. 거리는 공손했고, 마음은 닿지 않았다.",
+      "choices": [
+        { "label": "시를 건넨다", "goto": "poem" },
+        { "label": "그저 물러선다", "goto": "leave1" }
+      ]
+    },
+    "watch": {
+      "text": "손끝이 종이를 누르는 순간, 너는 이상하게 안도한다. 그 손을 오래 기억할 것 같다.",
+      "choices": [
+        { "label": "이름을 묻지 않는다", "goto": "leave1" },
+        { "label": "그의 눈을 붙잡는다", "goto": "poem", "effects": [{"setFlag": "obsession"}] }
+      ]
+    },
+    "poem": {
+      "text": "그는 받아 읽고, 고개를 끄덕였다. 칭찬도, 거절도 아닌 고요.",
+      "choices": [
+        { "label": "그 고요를 동의로 읽는다", "goto": "seed", "effects": [{"setFlag": "obsession"}] },
+        { "label": "그 고요를 경계로 읽는다", "goto": "seed", "effects": [{"setFlag": "silence"}] }
+      ]
+    },
+    "leave1": {
+      "text": "물러났지만, 눈은 남았다. 눈으로 시작한 인연은 오래 간다.",
+      "choices": [
+        { "label": "그날을 마음에 접어 넣는다", "goto": "seed" }
+      ]
+    },
+    "seed": {
+      "text": "첫 만남은 말보다 길었다. 말하지 않은 것들이 이미 시작이었다.",
+      "choices": []
+    }
+  }
+}
