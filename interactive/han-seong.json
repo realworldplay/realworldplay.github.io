@@ -1,0 +1,84 @@
+{
+  "id": "han-seong.json",
+  "start": "intro",
+  "scenes": {
+    "intro": {
+      "text": "압구정. 저녁 물빛이 기울고, 한 장의 회지가 바람에 들린다.",
+      "media": "",
+      "choices": [
+        { "label": "회지를 펼친다", "goto": "open", "effects": [{"setFlag": "read"}] },
+        { "label": "그냥 바라본다", "goto": "watch" }
+      ]
+    },
+    "open": {
+      "text": "墨痕이 아직 마르지 않았다. 글씨는 반듯하고, 마지막 줄이 덜려 있다.",
+      "choices": [
+        { "label": "마지막 줄을 상상한다", "goto": "imagine" },
+        { "label": "쓴 이의 숨을 더듬는다", "goto": "scent", "effects": [{"setFlag": "seekAuthor"}] }
+      ]
+    },
+    "watch": {
+      "text": "물결이 글자를 지운다. 그러나 의미는 남는다. 말해지지 않은 것을, 너는 읽을 수 있을까?",
+      "choices": [
+        { "label": "다시 펼친다", "goto": "open" },
+        { "label": "그냥 떠난다", "goto": "leave" }
+      ]
+    },
+    "imagine": {
+      "text": "“나는 너를 죽였고, 그래서 너를 기억한다.” — 그 문장을 쓰고 지운 자의 손이 떨린다.",
+      "choices": [
+        { "label": "그가 한명회였다면?", "goto": "han_path", "effects": [{"setFlag": "han"}] },
+        { "label": "그가 성삼문이었다면?", "goto": "sung_path", "effects": [{"setFlag": "sung"}] }
+      ]
+    },
+    "scent": {
+      "text": "먹 향 너머로, 수국과 물 비린내. 편지 쓴 이는 침묵을 오래 배운 사람이다.",
+      "choices": [
+        { "label": "침묵의 정체를 묻는다", "goto": "ask_silence" }
+      ]
+    },
+    "ask_silence": {
+      "text": "침묵은 거절이었을까, 보전이었을까.",
+      "choices": [
+        { "label": "거절이었다", "goto": "deny" },
+        { "label": "보전이었다", "goto": "preserve" }
+      ]
+    },
+    "han_path": {
+      "text": "그는 말 대신 구조를 지었다. 사랑을 정치로, 기억을 건물로.",
+      "choices": [
+        { "label": "그의 마지막 시선을 따른다", "goto": "han_end" }
+      ]
+    },
+    "sung_path": {
+      "text": "그는 감정을 지키기 위해 죽음을 선택했다. 그래서 오히려 영원해졌다.",
+      "choices": [
+        { "label": "그의 마지막 침묵을 따른다", "goto": "sung_end" }
+      ]
+    },
+    "deny": {
+      "text": "거절은 칼날 같았고, 그래서 상처는 오래 간다.",
+      "choices": [
+        { "label": "한명회의 상처로 이어진다", "goto": "han_path" }
+      ]
+    },
+    "preserve": {
+      "text": "보전은 제단 같았고, 그래서 무너뜨릴 수 없었다.",
+      "choices": [
+        { "label": "성삼문의 제단으로 이어진다", "goto": "sung_path" }
+      ]
+    },
+    "leave": {
+      "text": "너는 떠났고, 회지는 물에 풀렸다. 그러나 어떤 말들은 물에 젖지 않는다.",
+      "choices": []
+    },
+    "han_end": {
+      "text": "압구정에 앉아 그는 마지막으로 편지를 접었다. ‘나는 사랑했다.’ 그러나 소리내어 말하진 않았다.",
+      "choices": []
+    },
+    "sung_end": {
+      "text": "칼날 앞에서도 그는 마음을 더럽히지 않았다. 그래서 그는 아직 별빛으로 읽힌다.",
+      "choices": []
+    }
+  }
+}
