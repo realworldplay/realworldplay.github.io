@@ -1,0 +1,8 @@
+#if-app { max-width: 760px; margin: 0 auto; line-height: 1.8; }
+header { display:flex; flex-direction:column; gap:8px; margin-bottom:16px; }
+.toolbar { display:flex; gap:8px; flex-wrap:wrap; }
+#scene-text { font-size: 1.1rem; margin: 12px 0 16px; white-space: pre-wrap; }
+#choices { display:flex; flex-direction:column; gap:8px; }
+.choice { text-align:left; padding:10px 12px; border:1px solid #444; background:#111; color:#eee; border-radius:6px; cursor:pointer; }
+.choice:hover { background:#1a1a1a; }
+#scene-media img { max-width:100%; border-radius:8px; margin-bottom:12px; }
