@@ -15,6 +15,12 @@ title: 말해지지 않은 것들
 # Your name to show in the footer
 author: 초부
 
+
+# 사용자 사이트(realworldplay.github.io)
+url: "https://realworldplay.github.io"
+baseurl: ""
+
+
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
