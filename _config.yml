@@ -30,7 +30,8 @@ navbar-links:
   연성기록실: "archive"
   인물별 감정선: "categories"
   감정 실험실: "interactive"
-  초부에 대하여: "aboutme"
+  초부에 대하여: "about"
+  공지사항: "updates"
   Projects:
     - Worldplay: "https://www.worldplay.kr"
     - WorldplayHangzhou: "https://jasper-lillipilli-5ae.notion.site/Play-Hangzhou-f38bb9c97d9c4dff8a47b16aae6c6032"
