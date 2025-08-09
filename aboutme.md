@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 초부 & 이 아카이브
+title: 초부에 대하여
 subtitle: 말해지지 않은 감정선을 복원하는 연성 실험실
 permalink: /about/
 ---
