@@ -1,0 +1,45 @@
+{
+  "id": "han-seong-ep02.json",
+  "start": "corridor",
+  "scenes": {
+    "corridor": {
+      "text": "긴 복도. 서류를 들고 스쳐지나간다. 인사, 침묵, 그리고 미세한 정지.",
+      "choices": [
+        { "label": "침묵을 동의로 오독한다", "goto": "misread", "effects": [{"setFlag": "obsession"}] },
+        { "label": "침묵의 이유를 묻는다", "goto": "ask" }
+      ]
+    },
+    "misread": {
+      "text": "그는 고개를 끄덕였을 뿐인데, 너는 허락을 받았다고 느낀다.",
+      "choices": [
+        { "label": "서찰을 보낸다(업무)", "goto": "letters" },
+        { "label": "사적인 문장을 섞는다", "goto": "letters", "effects": [{"setFlag": "obsession"}] }
+      ]
+    },
+    "ask": {
+      "text": "“말하지 않음이 예의일 때가 있습니다.” 간단했으나 분명했다.",
+      "choices": [
+        { "label": "물러선다", "goto": "letters", "effects": [{"setFlag": "silence"}] },
+        { "label": "더 붙든다", "goto": "letters", "effects": [{"setFlag": "obsession"}] }
+      ]
+    },
+    "letters": {
+      "text": "서찰 몇 번. 내용은 곧고 건조하다. 그러나 건조한 문장도 번져 읽히는 밤이 있다.",
+      "choices": [
+        { "label": "강가를 함께 걷는다", "goto": "river" },
+        { "label": "일만 끝낸다", "goto": "close", "effects": [{"setFlag": "silence"}] }
+      ]
+    },
+    "river": {
+      "text": "물결 소리에 말이 묻힌다. 그는 풍경을 가리킬 뿐, 마음을 가리키지 않는다.",
+      "choices": [
+        { "label": "그걸 신호로 오인한다", "goto": "close", "effects": [{"setFlag": "obsession"}] },
+        { "label": "그걸 경계로 이해한다", "goto": "close", "effects": [{"setFlag": "silence"}] }
+      ]
+    },
+    "close": {
+      "text": "얇은 대화는 깊은 착각이 되었다. 관계는 얇았고, 마음은 깊어졌다.",
+      "choices": []
+    }
+  }
+}
