@@ -1,0 +1,39 @@
+{
+  "id": "han-seong-ep05.json",
+  "start": "pavilion",
+  "scenes": {
+    "pavilion": {
+      "text": "압구정. 서쪽 물길 너머 새남터. 정자는 완성되었고, 문장은 미완성으로 남았다.",
+      "choices": [
+        { "label": "이름을 부른다", "goto": "call", "effects": [{"setFlag": "regret"}] },
+        { "label": "이름을 지운다", "goto": "erase", "effects": [{"setFlag": "silence"}] }
+      ]
+    },
+    "call": {
+      "text": "물결이 한 번 떨린다. 메아리는 대답이 아니다. 그러나 대답과 닮았다.",
+      "choices": [
+        { "label": "메아리를 대답으로 삼는다", "goto": "end_false" },
+        { "label": "대답이 아님을 인정한다", "goto": "end_true", "require": ["silence"] }
+      ]
+    },
+    "erase": {
+      "text": "이름을 지웠다. 그래서 오래 부를 수 있게 되었다.",
+      "choices": [
+        { "label": "대신 시 한 구절을 남긴다", "goto": "verse" },
+        { "label": "아무 것도 남기지 않는다", "goto": "end_void" }
+      ]
+    },
+    "verse": {
+      "text": "“나는 너를 죽였고, 그래서 너를 기억한다.” — 누구에게도 읽히지 않게 접어 넣는다.",
+      "choices": [
+        { "label": "그 문장을 불태운다", "goto": "end_ash", "require": ["obsession"] },
+        { "label": "그 문장을 묻는다", "goto": "end_soil", "require": ["regret"] }
+      ]
+    },
+    "end_false": { "text": "거짓 대답을 품었으니, 평안은 왔으나 진실은 남았다.", "choices": [] },
+    "end_true": { "text": "대답이 없음을 받아들였을 때, 미련은 이름을 잃었다.", "choices": [] },
+    "end_void": { "text": "아무 것도 남기지 않았으나, 자리 자체가 기록이었다.", "choices": [] },
+    "end_ash": { "text": "재는 가벼웠다. 그러나 손에 달라붙었다.", "choices": [] },
+    "end_soil": { "text": "흙은 비밀을 잘 지킨다. 그래서 봄마다 다시 읽힌다.", "choices": [] }
+  }
+}
