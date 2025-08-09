@@ -1,0 +1,55 @@
+{
+  "id": "kim-beast-basic.json",
+  "start": "bank",
+  "scenes": {
+    "bank": {
+      "text": "압구정. 강바람. 그는 강가에 앉아 있었다. 시선은 늘 강을 넘어 돌아오지 않을 이를 찾았다.",
+      "media": "/assets/img/apgujeong-night.jpg",
+      "choices": [
+        { "label": "그 시선을 따라간다", "goto": "trace", "effects": [{ "setFlag": "follow" }] },
+        { "label": "그를 보지 않는다", "goto": "pass" }
+      ]
+    },
+    "pass": {
+      "text": "보지 않으려 했지만 바람은 냄새를 남겼다. 젖은 먹의 냄새, 오래된 집착의 냄새.",
+      "choices": []
+    },
+    "trace": {
+      "text": "강 너머 새남터—달빛이 얕게 깔린 자리. 그곳에 한 사람의 이름이 겹쳐졌다.",
+      "media": "/assets/img/river-moon.jpg",
+      "choices": [
+        { "label": "현실로 쓴다(차갑게)", "goto": "real_ink" },
+        { "label": "이야기로 바꾼다(금오신화)", "goto": "myth_start", "effects": [{ "setFlag": "myth" }] }
+      ]
+    },
+    "real_ink": {
+      "text": "그의 눈빛은 사라진 별을 붙잡으려는 괴물의 손 같았다. 추잡한 욕망을 품었으며 더럽고, 젖어 있고, 떼어낼 수 없었다.",
+      "media": "/assets/img/murky-hand.jpg",
+      "choices": [
+        { "label": "깊이 들여다본다", "goto": "cut" },
+        { "label": "문장을 닫는다", "goto": "end_cold" }
+      ]
+    },
+    "cut": {
+      "text": "“그 눈은 썩어 있다.” — 입술에서 칼이 나갔다.",
+      "media": "/assets/img/blade.jpg",
+      "choices": [
+        { "label": "칼을 거둔다", "goto": "end_words" },
+        { "label": "더 멀리 선을 긋는다", "goto": "end_silence" }
+      ]
+    },
+    "myth_start": {
+      "text": "나는 그를 바람 속 괴물로 바꾸었다. 괴물은 매일 강을 건너 초월자를 부르다 달빛 속에 사라졌다.",
+      "media": "/assets/img/moon-beast.jpg",
+      "choices": [
+        { "label": "괴물의 더러움을 남긴다", "goto": "end_full_myth" },
+        { "label": "은유로 닦아낸다", "goto": "end_soft_myth" }
+      ]
+    },
+    "end_cold":   { "text": "나는 기록하지 않기로 했다. 그러나 강물은 기록했다.", "choices": [] },
+    "end_silence":{ "text": "문을 닫았다. 안쪽은 내 것, 바깥은 그의 것. 바람만 드나든다.", "choices": [] },
+    "end_words":  { "text": "칼 같은 문장은 돌아왔다. 더럽지만, 정확했다.", "choices": [] },
+    "end_full_myth": { "text": "금오신화 中 — 괴물은 강 건너의 별을 부르다 달빛 속으로 가라앉았다.", "choices": [] },
+    "end_soft_myth": { "text": "금오신화 中 — 바람은 이름을 지우고 노래만 남겼다.", "choices": [] }
+  }
+}
