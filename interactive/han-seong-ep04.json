@@ -1,0 +1,35 @@
+{
+  "id": "han-seong-ep04.json",
+  "start": "office",
+  "scenes": {
+    "office": {
+      "text": "승정원. 아홉 달의 종이와 도장. 서로 등을 지고 문장을 넘긴다.",
+      "choices": [
+        { "label": "시선을 보낸다", "goto": "glance" },
+        { "label": "완벽히 무심해진다", "goto": "cold", "effects": [{"setFlag": "silence"}] }
+      ]
+    },
+    "glance": {
+      "text": "그의 눈길이 잠깐 머문다. 예의일 수도, 마지막 인사일 수도.",
+      "choices": [
+        { "label": "그걸 희망으로 읽는다", "goto": "paper", "effects": [{"setFlag": "obsession"}] },
+        { "label": "그걸 작별로 읽는다", "goto": "paper", "effects": [{"setFlag": "regret"}] }
+      ]
+    },
+    "cold": {
+      "text": "무심은 연민의 다른 모습이었다. 다만 너는 그걸 몰랐다.",
+      "choices": [
+        { "label": "서류만 본다", "goto": "paper" }
+      ]
+    },
+    "paper": {
+      "text": "공식 문장 속에 사적인 단어를 찾는다. 그는 끝내 넣지 않았다.",
+      "choices": [
+        { "label": "그 빈 칸을 네가 채운다", "goto": "end_fill", "effects": [{"setFlag": "obsession"}] },
+        { "label": "빈 칸을 빈 칸으로 둔다", "goto": "end_blank", "effects": [{"setFlag": "regret"}] }
+      ]
+    },
+    "end_fill": { "text": "너는 문장에 마음을 끼워 넣었다. 그래서 문장은 기울었다.", "choices": [] },
+    "end_blank": { "text": "빈 칸은 남았다. 그래서 더 오래 읽혔다.", "choices": [] }
+  }
+}
