@@ -4,12 +4,11 @@ title: 감정 실험실
 permalink: /interactive/
 ---
 
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/if.css">
+<link rel="stylesheet" href="{{ '/assets/css/if.css' | relative_url }}">
 
 <div id="if-app">
-  <header>
     <h1>한명회×성삼문 – 인터랙티브 회지</h1>
-    <div class="toolbar">
+    <header class="toolbar">
       <select id="workSelect">
         <option value="han-seong.json">EP0 강가의 편지</option>
         <!-- 다른 작품 추가 가능 -->
@@ -20,11 +19,10 @@ permalink: /interactive/
         <option value="han-seong-ep05.json">EP5 말하지 못한 미련</option>
         <option value="kim-beast-basic.json">EP6 금오신화</option>
       </select>
-      <button id="btnRestart" type="button">처음부터</button>
-      <button id="btnBack" type="button">되돌리기</button>
-      <button id="btnSave" type="button">저장</button>
-      <button id="btnLoad" type="button">불러오기</button>
-    </div>
+    <button id="btnRestart" type="button">처음부터</button>
+    <button id="btnBack" type="button">되돌리기</button>
+    <button id="btnSave" type="button">저장</button>
+    <button id="btnLoad" type="button">불러오기</button>
   </header>
 
   <main>
@@ -34,10 +32,168 @@ permalink: /interactive/
   </main>
 </div>
 
-<script src="{{ site.baseurl }}/assets/js/if-engine.js"></script>
 <script>
-  IF.init({
-    baseUrl: "{{ site.baseurl }}/interactive/",
-    storageKey: "if-hanseong-v1"
+/** =========================
+ * Minimal Interactive Engine (완전판/되돌리기 고침)
+ * 지원: text, media(img), choices(label/goto), effects(setFlag/clearFlag), next/delay
+ * 버튼: 처음부터/되돌리기/저장/불러오기/작품선택
+ * ========================= */
+(function () {
+  const st = {
+    data: null,                             // 현재 작품 JSON
+    state: { flags: {}, history: [] },     // 상태(플래그/히스토리)
+    current: null,                          // 현재 씬 id
+    storageKey: 'if-save',
+    baseUrl: '{{ "/interactive/" | relative_url }}'
+  };
+
+  // DOM 캐시
+  const $ = (id) => document.getElementById(id);
+  const el = {
+    work: $('workSelect'),
+    restart: $('btnRestart'),
+    back: $('btnBack'),
+    save: $('btnSave'),
+    load: $('btnLoad'),
+    media: $('scene-media'),
+    text: $('scene-text'),
+    choices: $('choices')
+  };
+
+  // 텍스트 타자 효과 (심플/안정)
+  function typeWriter(text, target, speed = 0) {
+    if (!speed) { target.textContent = text; return; }
+    let i = 0;
+    target.textContent = '';
+    const tick = () => {
+      target.textContent = text.slice(0, i++);
+      if (i <= text.length) requestAnimationFrame(tick);
+    };
+    tick();
+  }
+
+  // 이펙트 적용 (플래그 온/오프만 지원)
+  function applyEffects(effects) {
+    if (!effects) return;
+    effects.forEach(e => {
+      if (e.setFlag) st.state.flags[e.setFlag] = true;
+      if (e.clearFlag) delete st.state.flags[e.clearFlag];
+    });
+  }
+
+  // 씬 렌더 (pushHistory: true면 히스토리에 누적)
+  function renderScene(id, pushHistory = true) {
+    const scene = st.data.scenes[id];
+    if (!scene) { console.error('Scene not found:', id); return; }
+
+    st.current = id;
+    if (pushHistory) {
+      st.state.history.push(id);
+    }
+
+    // 미디어
+    el.media.innerHTML = scene.media ? `<img src="${scene.media}" alt="">` : '';
+
+    // 텍스트
+    typeWriter(scene.text || '', el.text, 0);
+
+    // 선택지
+    el.choices.innerHTML = '';
+    if (scene.choices && scene.choices.length) {
+      scene.choices.forEach(ch => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'choice';
+        b.textContent = ch.label;
+        b.onclick = () => {
+          applyEffects(ch.effects);
+          renderScene(ch.goto, true);
+        };
+        el.choices.appendChild(b);
+      });
+    } else if (scene.next) {
+      // 자동 진행
+      const d = typeof scene.delay === 'number' ? scene.delay : 800;
+      setTimeout(() => renderScene(scene.next, true), d);
+    }
+
+    // (원하면 해시 갱신) 브라우저 뒤로가기와 충돌 피하려면 끄기 권장
+    // window.location.hash = '#' + id;
+  }
+
+  // 작품 로드
+  async function loadWork(file) {
+    const url = (file.startsWith('http') ? file : st.baseUrl + file);
+    const res = await fetch(url, { cache: 'no-cache' });
+    st.data = await res.json();
+
+    // 상태 리셋
+    st.state = { flags: {}, history: [] };
+
+    // 시작 씬도 히스토리에 포함되도록 pushHistory=true
+    const start = st.data.start || Object.keys(st.data.scenes)[0];
+    renderScene(start, true);
+  }
+
+  // 되돌리기 (현재만 pop → 이전은 peek)
+  function goBack() {
+    if (st.state.history.length <= 1) return; // 되돌릴 게 없음
+    st.state.history.pop();                    // 현재 제거
+    const prev = st.state.history[st.state.history.length - 1]; // peek
+    renderScene(prev, false);                  // 이미 스택에 있으므로 pushX
+  }
+
+  // 저장/불러오기
+  function save() {
+    const payload = {
+      work: el.work.value,
+      state: st.state,
+      current: st.current
+    };
+    localStorage.setItem(st.storageKey, JSON.stringify(payload));
+    alert('저장됨');
+  }
+  async function load() {
+    const raw = localStorage.getItem(st.storageKey);
+    if (!raw) { alert('저장 데이터 없음'); return; }
+    const payload = JSON.parse(raw);
+    // 작품이 다르면 먼저 작품 로드
+    if (el.work.value !== payload.work) {
+      el.work.value = payload.work;
+      await loadWork(payload.work);
+    }
+    // 상태 복구 후 현재 씬으로 렌더 (push 없이)
+    st.state = payload.state || { flags: {}, history: [] };
+    renderScene(payload.current, false);
+  }
+
+  // 바인딩
+  function bind() {
+    el.work.addEventListener('change', () => loadWork(el.work.value));
+    el.restart.addEventListener('click', () => loadWork(el.work.value));
+    el.back.addEventListener('click', goBack);
+    el.save.addEventListener('click', save);
+    el.load.addEventListener('click', load);
+
+    // 키보드 단축키: 숫자=선택지, Backspace=되돌리기
+    document.addEventListener('keydown', (e) => {
+      const n = parseInt(e.key, 10);
+      if (!isNaN(n)) {
+        const btn = el.choices.querySelectorAll('.choice')[n - 1];
+        if (btn) btn.click();
+      }
+      if (e.key === 'Backspace') {
+        e.preventDefault();
+        goBack();
+      }
+    });
+  }
+
+  // 초기화
+  document.addEventListener('DOMContentLoaded', () => {
+    bind();
+    // 기본 작품 로드
+    loadWork(el.work.value);
   });
+})();
 </script>
