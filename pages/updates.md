@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 업데이트
+title: 릴리즈노트
 permalink: /updates/
 ---
 
