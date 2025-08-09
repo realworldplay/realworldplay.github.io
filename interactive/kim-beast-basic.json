@@ -3,7 +3,7 @@
   "start": "bank",
   "scenes": {
     "bank": {
-      "text": "압구정. 강바람. 그는 강가에 앉아 있었다. 시선은 늘 강을 넘어 돌아오지 않을 이를 찾았다.",
+      "text": "압구정 부근, 한명회가 강가에 앉아 있었다. 그의 시선은 늘 강을 넘어 돌아오지 않을 이를 찾았다.",
       "media": "/assets/img/apgujeong-night.jpg",
       "choices": [
         { "label": "그 시선을 따라간다", "goto": "trace", "effects": [{ "setFlag": "follow" }] },
@@ -23,7 +23,7 @@
       ]
     },
     "real_ink": {
-      "text": "그의 눈빛은 사라진 별을 붙잡으려는 괴물의 손 같았다. 추잡한 욕망을 품었으며 더럽고, 젖어 있고, 떼어낼 수 없었다.",
+      "text": "그의 눈빛은 사라진 별을 붙잡으려는 괴물의 손 같았다. 추잡한 욕망을 품었으며 더럽고 젖어 있고 떼어낼 수 없었다.",
       "media": "/assets/img/murky-hand.jpg",
       "choices": [
         { "label": "깊이 들여다본다", "goto": "cut" },
