@@ -1,0 +1,30 @@
+{
+  "id": "han-seong-ep03.json",
+  "start": "night",
+  "scenes": {
+    "night": {
+      "text": "계유정난의 밤. 등불이 흔들린다. 칼과 인장, 그리고 서명이 놓인다.",
+      "choices": [
+        { "label": "그를 설득하려 한다", "goto": "convince" },
+        { "label": "아무 말 없이 결행한다", "goto": "execute", "effects": [{"setFlag": "obsession"}] }
+      ]
+    },
+    "convince": {
+      "text": "입술이 떨린다. 그러나 대답은 침묵이었다. 단호하고 조용했다.",
+      "choices": [
+        { "label": "침묵을 마지막 경고로 듣는다", "goto": "execute", "effects": [{"setFlag": "silence"}] },
+        { "label": "침묵을 마지막 기회로 오독한다", "goto": "execute", "effects": [{"setFlag": "obsession"}] }
+      ]
+    },
+    "execute": {
+      "text": "칼날이 방향을 정했다. 너는 구조를 세웠고, 그는 결을 지켰다. 두 마음은 어긋난 채 완성된다.",
+      "choices": [
+        { "label": "그의 이름을 속으로 부른다", "goto": "after", "effects": [{"setFlag": "regret"}] }
+      ]
+    },
+    "after": {
+      "text": "밤이 지나도 끝나지 않았다. 끝나지 않도록 만들었으므로.",
+      "choices": []
+    }
+  }
+}
