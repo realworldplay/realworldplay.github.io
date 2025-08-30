@@ -7,8 +7,13 @@ permalink: /category/hanmyeonghoe/
 
 <h1>📜 감정선: 한명회</h1>
 
-<ul>
-  {% for post in site.categories.한명회 %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+{% assign cat = site.categories.hanmyeonghoe %}
+{% if cat %}
+  <ul>
+    {% for post in cat %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y.%m.%d" }})</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>📭 현재 이 카테고리에 속한 포스트가 없습니다.</p>
+{% endif %}
