@@ -1,3 +1,4 @@
+---
 layout: page
 title: 성삼문
 category: 성삼문
