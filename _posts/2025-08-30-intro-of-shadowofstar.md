@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 감정극 머더미스터리 &#91;별의 그림자&#93;
-categories: [murdermystery,jubensha]
+categories: [한명회,성삼문,김시습,세조]
 tags: [한명회,성삼문,김시습,세조]
 ---
 
