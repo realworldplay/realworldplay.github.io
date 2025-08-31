@@ -6,7 +6,7 @@ permalink: /category/kimsiseup/
 ---
 
 
-<h1>📜 감정선: 성삼문</h1>
+<h1>📜 감정선: 김시습</h1>
 
 {% assign cat = site.categories.kimsiseup %}
 {% if cat %}
